@@ -18,6 +18,8 @@ Bundle 'minibufexpl.vim'
 Bundle 'taglist.vim'
 Bundle 'molokai'
 Bundle 'desert256.vim'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
 
 
 """""""""""""""""""""""""""""""
@@ -156,10 +158,12 @@ endif
     "endif
 "endfunction
 "map <silent> <F12> :call ToggleCw()<CR>
-
-map <silent> <S-F10> :Ex<CR>
-map <silent> <leader>c :silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++ .<CR>
-
+"map <silent> <leader>c :silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++ .<CR>
+"function! UpdateTags()
+  "execute ":!ctags -R --languages=C++ --c++-kinds=+p --fields=+iaS --extra=+q ./"
+  "echohl StatusLine | echo "Tags updated" | echohl None
+"endfunction
+"nnoremap <leader>c :call UpdateTags()
 cmap w!! w !sudo tee % >/dev/null
 
 
@@ -220,3 +224,6 @@ endif
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+
+" FuzzyFinder
+map ,f :FufFile **/<CR>
