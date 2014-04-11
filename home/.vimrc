@@ -20,6 +20,7 @@ Bundle 'desert256.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'majutsushi/tagbar'
+Bundle 'Lokaltog/powerline'
 
 
 """""""""""""""""""""""""""""""
@@ -226,3 +227,10 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " FuzzyFinder
 map ,f :FufFile **/<CR>
+
+" Powerline 
+set rtp+=.vim/bundle/powerline/powerline/bindings/vim
+set laststatus=2
+set encoding=utf-8
+"set t_Co=256
+"let g:Powerline_symbols = 'fancy'
