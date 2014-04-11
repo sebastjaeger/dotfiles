@@ -10,39 +10,14 @@ set nocompatible                  " Disable vi compatibility mode
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
-
-" Vundle bundles
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'tpope/vim-rails.git'
-" Vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-Bundle 'snipMate'
 Bundle 'bufexplorer.zip'
-Bundle 'SuperTab' 
+Bundle 'ervandew/supertab'
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
 Bundle 'minibufexpl.vim'
 Bundle 'taglist.vim'
 Bundle 'molokai'
 Bundle 'desert256.vim'
-
-" Non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
-" Git repos on your local machine (ie. when working on your own plugin)
-"Bundle 'file:///Users/gmarik/path/to/plugin'
-
-
-"""""""""""""""""""""""""""""""
-" Pathogen
-"""""""""""""""""""""""""""""""
-" Use pathogen to easily modify the runtime path to include all
-" plugins under the ~/.vim/bundle directory
-"filetype off
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
 
 
 """""""""""""""""""""""""""""""
@@ -51,10 +26,8 @@ Bundle 'desert256.vim'
 filetype plugin indent on         " Enable filetype-specific features
 syntax on                         " Syntax highlighting
 
-set visualbell                            " Use visual bell instead of beeping 
+set visualbell                    " Use visual bell instead of beeping 
 set noerrorbells
-"set writebackup                   " Create backup file and delete on saving
-"set autowrite                     " Write on changing buffer
 set hidden                        " Allow to change buffers without saving them
 set mouse=ar                      " Use mouse
 set virtualedit=all               " Edit anywhere
@@ -64,12 +37,12 @@ set wildmenu                      " Enable wildmenu for tab-completion
 set wildmode=list:longest,full
 set wildignore=*.o,*.obj,*~,*.swp,*.pyc,*.so
 
-set history=1000         " remember more commands and search history
-set undolevels=1000      " use many muchos levels of undo
+set history=1000
+set undolevels=1000
 
 set showmatch                     " Show matching brackets
 set splitright                    " New window should open on the right
-"set splitbelow                    " and below the current window
+set splitbelow                    " and below the current window
 set nojoinspaces                  " Only one space between joined lines
 set title
 
@@ -90,14 +63,11 @@ set nu
 """""""""""""""""""""""""""""""
 " Looks
 """""""""""""""""""""""""""""""
-set cursorline                 " highlight cursor line
-if has('gui_running')          " Remove toolbar and menubar in gvim
+set cursorline
+
+if has('gui_running')
     set guioptions-=T
     set guioptions-=m
-    "colorscheme desert
-"else
-    "set t_Co=256
-    "colorscheme desert256
 endif
 colorscheme molokai
 
@@ -133,7 +103,7 @@ let mapleader=","
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" j and k are supposed to jump between lines on the _screen_
+" j and k are supposed to jump between lines on the screen
 nnoremap k gk
 nnoremap j gj
 nnoremap gk k
@@ -150,7 +120,6 @@ nnoremap <C-y> 3<C-y>
 
 map Y y$
 map <Backspace> X
-"map <Tab> i<Tab><Esc>^
 map <CR> i<CR><Esc>
 map <S-Enter> mzO<Esc>`z
 map <C-Enter> mzo<Esc>`z
@@ -161,7 +130,8 @@ noremap ,, :%s:::g<Left><Left><Left>
 vmap > >gv
 vmap < <gv
 
-set pastetoggle=<F2>      "Keep indentation when in paste mode
+"Keep indentation when in paste mode
+set pastetoggle=<F2>
 
 if v:version >= 700
     set list listchars=tab:»·,trail:·
@@ -169,12 +139,9 @@ else
     set list listchars=tab:>-,trail:-
 endif
 set nolist
-"map <silent> <leader>l :set list!<CR>
 map <silent> <F12> :set list!<CR>
 
-"map <silent> <leader>no :nohls<CR>
 map <silent> <F9> :nohls<CR>
-"map <silent> <S-F4> :set hls!<Bar>set hls?<CR>
 
 if has('autocmd')
     autocmd FileType python map <leader>x :!python %<CR>
@@ -195,15 +162,6 @@ map <silent> <leader>c :silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+
 
 cmap w!! w !sudo tee % >/dev/null
 
-" Search for the ... arguments separated with whitespace (if no '!'),
-" or with non-word characters (if '!' added to command).
-function! SearchMultiLine(bang, ...)
-  if a:0 > 0
-    let sep = (a:bang) ? '\_W\+' : '\_s\+'
-    let @/ = join(a:000, sep)
-  endif
-endfunction
-command! -bang -nargs=* -complete=tag S call SearchMultiLine(<bang>0, <f-args>)|normal! /<C-R>/<CR>
 
 """""""""""""""""""""""""""
 " Abbreviations
@@ -226,10 +184,14 @@ cabbr XA xa
 """""""""""""""""""""""""""
 " Other stuff
 """""""""""""""""""""""""""
-
+" Settings for Makefiles
 if has('autocmd')
-    autocmd BufEnter ?akefile* set noet ts=8 sts=8 sw=8    " Settings for Makefiles
+    autocmd BufEnter ?akefile* set noet ts=8 sts=8 sw=8
 endif
+
+" Close preview window when completion finished
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 
 """""""""""""""""""""""""""""""""""
@@ -240,15 +202,21 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-" TList
-nnoremap <silent> <F11> :TlistToggle<CR>
-" Close preview window when completion finished
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+
 " NERD tree
 map <silent> <F10> :NERDTreeToggle<CR>
 
+" TList
+nnoremap <silent> <F11> :TlistToggle<CR>
 
+" Omni complete
+set omnifunc=syntaxcomplete#Complete
+if has('gui_running')
+    highlight Pmenu guibg=brown gui=bold
+else
+    highlight Pmenu ctermbg=238 gui=bold
+endif
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
