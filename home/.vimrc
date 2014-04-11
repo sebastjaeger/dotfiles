@@ -44,7 +44,6 @@ set undolevels=1000
 
 set showmatch                     " Show matching brackets
 set splitright                    " New window should open on the right
-set splitbelow                    " and below the current window
 set nojoinspaces                  " Only one space between joined lines
 set title
 
