@@ -26,6 +26,8 @@ Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
 Bundle 'minibufexpl.vim'
 Bundle 'taglist.vim'
+Bundle 'molokai'
+Bundle 'desert256.vim'
 
 " Non github repos
 "Bundle 'git://git.wincent.com/command-t.git'

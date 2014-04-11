@@ -57,7 +57,7 @@ alias re="cd ~/research/projects"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(zsh-syntax-highlighting history-substring-search git)
+plugins=(zsh-syntax-highlighting history-substring-search git vundle)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,3 +91,5 @@ fi
 #zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
