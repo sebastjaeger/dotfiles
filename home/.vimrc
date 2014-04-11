@@ -15,11 +15,11 @@ Bundle 'ervandew/supertab'
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
 Bundle 'minibufexpl.vim'
-Bundle 'taglist.vim'
 Bundle 'molokai'
 Bundle 'desert256.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'majutsushi/tagbar'
 
 
 """""""""""""""""""""""""""""""
@@ -209,8 +209,8 @@ let g:miniBufExplModSelTarget = 1
 " NERD tree
 map <silent> <F10> :NERDTreeToggle<CR>
 
-" TList
-nnoremap <silent> <F11> :TlistToggle<CR>
+" Tagbar
+nmap <silent> <F11> :TagbarToggle<CR>
 
 " Omni complete
 set omnifunc=syntaxcomplete#Complete
