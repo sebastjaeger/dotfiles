@@ -120,17 +120,17 @@ inoremap <down> <C-o>gj
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-map Y y$
-map <Backspace> X
-map <CR> i<CR><Esc>
-map <S-Enter> mzO<Esc>`z
-map <C-Enter> mzo<Esc>`z
-map <Space> i <Esc>l
+noremap Y y$
+noremap <Backspace> X
+noremap <CR> i<CR><Esc>
+noremap <S-Enter> mzO<Esc>`z
+noremap <C-Enter> mzo<Esc>`z
+noremap <Space> i <Esc>l
 
 noremap ,, :%s:::g<Left><Left><Left>
 
-vmap > >gv
-vmap < <gv
+vnoremap > >gv
+vnoremap < <gv
 
 "Keep indentation when in paste mode
 set pastetoggle=<F2>
@@ -231,6 +231,7 @@ map ,f :FufFile **/<CR>
 " Powerline 
 set rtp+=.vim/bundle/powerline/powerline/bindings/vim
 set laststatus=2
+" Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set noshowmode 
 set encoding=utf-8
-"set t_Co=256
 "let g:Powerline_symbols = 'fancy'
