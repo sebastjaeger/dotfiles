@@ -229,7 +229,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 map ,f :FufFile **/<CR>
 
 " Powerline 
-set rtp+=.vim/bundle/powerline/powerline/bindings/vim
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set laststatus=2
 " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode 
