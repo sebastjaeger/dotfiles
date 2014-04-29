@@ -13,12 +13,17 @@ HISTSIZE=500000
 SAVEHIST=500000
 
 # Python
-export PYTHONPATH=${HOME}/lib:/home/sebastian/projects/ps-ml-lando:/home/sebastian/research/lib
+export PYTHONPATH=${HOME}/lib:
+#/home/sebastian/projects/ps-ml-lando:/home/sebastian/research/lib
+#export PYTHONPATH=$PYTHONPATH:/home/sebastian/ps-app-coruscant/lib
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias re="cd ~/research/projects"
+alias apps="cd ~/ps-app-coruscant/apps"
+alias corus="cd ~/ps-app-coruscant"
+alias tmcorus="ssh coruscant -t tmux attach"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

@@ -11,17 +11,20 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'bufexplorer.zip'
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
-Bundle 'minibufexpl.vim'
+"Bundle 'minibufexpl.vim'
+Bundle 'fholgado/minibufexpl.vim'
 Bundle 'molokai'
 Bundle 'desert256.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/powerline'
-
+"Bundle 'plasticboy/vim-markdown'
+Bundle 'Valloric/YouCompleteMe'
+"Bundle 'bling/vim-airline'
 
 """""""""""""""""""""""""""""""
 " General
@@ -213,17 +216,17 @@ map <silent> <F10> :NERDTreeToggle<CR>
 " Tagbar
 nmap <silent> <F11> :TagbarToggle<CR>
 
-" Omni complete
-set omnifunc=syntaxcomplete#Complete
-if has('gui_running')
-    highlight Pmenu guibg=brown gui=bold
-else
-    highlight Pmenu ctermbg=238 gui=bold
-endif
+"" Omni complete
+"set omnifunc=syntaxcomplete#Complete
+"if has('gui_running')
+    "highlight Pmenu guibg=brown gui=bold
+"else
+    "highlight Pmenu ctermbg=238 gui=bold
+"endif
 
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+"" Supertab
+"let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " FuzzyFinder
 map ,f :FufFile **/<CR>
@@ -235,3 +238,8 @@ set laststatus=2
 set noshowmode 
 set encoding=utf-8
 "let g:Powerline_symbols = 'fancy'
+
+"" Airline
+"let g:airline_powerline_fonts = 1 
+"set laststatus=2
+"set noshowmode 
