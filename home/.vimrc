@@ -2,6 +2,8 @@
 " Basics
 """""""""""""""""""""""""""""""
 set nocompatible                  " Disable vi compatibility mode
+filetype on
+filetype off
 
 
 """""""""""""""""""""""""""""""
@@ -14,7 +16,6 @@ Bundle 'bufexplorer.zip'
 "Bundle 'ervandew/supertab'
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
-"Bundle 'minibufexpl.vim'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'molokai'
 Bundle 'desert256.vim'
@@ -25,6 +26,8 @@ Bundle 'Lokaltog/powerline'
 "Bundle 'plasticboy/vim-markdown'
 Bundle 'Valloric/YouCompleteMe'
 "Bundle 'bling/vim-airline'
+Bundle 'chrisbra/csv.vim'
+
 
 """""""""""""""""""""""""""""""
 " General
