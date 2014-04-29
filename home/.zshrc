@@ -14,8 +14,6 @@ SAVEHIST=500000
 
 # Python
 export PYTHONPATH=${HOME}/lib:
-#/home/sebastian/projects/ps-ml-lando:/home/sebastian/research/lib
-#export PYTHONPATH=$PYTHONPATH:/home/sebastian/ps-app-coruscant/lib
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -92,9 +90,12 @@ fi
 #bindkey '^[OA' history-beginning-search-backward
 #bindkey '\e[B' history-beginning-search-forward
 #bindkey '^[OB' history-beginning-search-forward
-## bind UP and DOWN arrow keys
+
 #zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+#bindkey "$terminfo[kcuu1]" history-substring-search-up
+#bindkey "$terminfo[kcud1]" history-substring-search-down
+
+bindkey "$terminfo[kcuu1]" history-beginning-search-backward
+bindkey "$terminfo[kcud1]" history-beginning-search-forward
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
