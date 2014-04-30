@@ -21,7 +21,7 @@ SAVEHIST=500000
 alias re="cd ~/research/projects"
 alias apps="cd ~/ps-app-coruscant/apps"
 alias corus="cd ~/ps-app-coruscant"
-alias lando="cd ~/ps-app-lando"
+alias lando="cd ~/ps-ml-lando"
 alias tmcorus="ssh coruscant -t tmux attach"
 
 alias vundle="vim +PluginInstall! +qall"
@@ -76,7 +76,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 VIMP=$HOME/.vim
 if ! [[ -d $VIMP ]]; then
     git clone https://github.com/gmarik/Vundle.vim.git $VIMP/bundle/Vundle.vim
-    vim +PluginInstall +qall
+    vundle
 fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
