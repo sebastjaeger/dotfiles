@@ -1,33 +1,29 @@
 ﻿"""""""""""""""""""""""""""""""
-" Basics
+" Vundle
 """""""""""""""""""""""""""""""
 set nocompatible                  " Disable vi compatibility mode
 filetype on
 filetype off
 
-
-"""""""""""""""""""""""""""""""
-" Vundle
-"""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'bufexplorer.zip'
-"Bundle 'ervandew/supertab'
-Bundle 'The-NERD-Commenter'
-Bundle 'The-NERD-tree'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'molokai'
-Bundle 'desert256.vim'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'majutsushi/tagbar'
-Bundle 'Lokaltog/powerline'
-"Bundle 'plasticboy/vim-markdown'
-Bundle 'Valloric/YouCompleteMe'
-"Bundle 'bling/vim-airline'
-Bundle 'chrisbra/csv.vim'
-
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bufexplorer.zip'
+"Plugin 'ervandew/supertab'
+Plugin 'The-NERD-Commenter'
+Plugin 'The-NERD-tree'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'molokai'
+Plugin 'desert256.vim'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'majutsushi/tagbar'
+Plugin 'Lokaltog/powerline'
+"Plugin 'plasticboy/vim-markdown'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'bling/vim-airline'
+Plugin 'chrisbra/csv.vim'
+call vundle#end()
 
 """""""""""""""""""""""""""""""
 " General

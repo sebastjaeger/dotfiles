@@ -1,6 +1,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Install oh-my-zsh if not installed already
+if ! [[ -d $ZSH ]]; then
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
+fi
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -12,16 +17,15 @@ HISTFILE=$HOME/.zhistory
 HISTSIZE=500000
 SAVEHIST=500000
 
-# Python
-export PYTHONPATH=${HOME}/lib:
-
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias re="cd ~/research/projects"
 alias apps="cd ~/ps-app-coruscant/apps"
 alias corus="cd ~/ps-app-coruscant"
+alias lando="cd ~/ps-app-lando"
 alias tmcorus="ssh coruscant -t tmux attach"
+
+alias vundle="vim +PluginInstall! +qall"
+alias vundle-clean="vim +PluginClean! +qall"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -60,13 +64,21 @@ alias tmcorus="ssh coruscant -t tmux attach"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(zsh-syntax-highlighting history-substring-search git vundle)
+plugins=(zsh-syntax-highlighting git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+export PYTHONPATH=${HOME}/lib:
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Make sure Vundle is installed
+VIMP=$HOME/.vim
+if ! [[ -d $VIMP ]]; then
+    git clone https://github.com/gmarik/Vundle.vim.git $VIMP/bundle/Vundle.vim
+    vim +PluginInstall +qall
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
