@@ -8,11 +8,15 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'bufexplorer.zip'
-Plugin 'fholgado/minibufexpl.vim'
+"Plugin 'bufexplorer.zip'
+Plugin 'jlanzarotta/bufexplorer'
+"Plugin 'fholgado/minibufexpl.vim'
+Plugin 'minibufexpl.vim'
 "Plugin 'ervandew/supertab'
-Plugin 'The-NERD-Commenter'
-Plugin 'The-NERD-tree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'The-NERD-Commenter'
+"Plugin 'The-NERD-tree'
 Plugin 'molokai'
 Plugin 'desert256.vim'
 Plugin 'L9'
@@ -30,7 +34,6 @@ call vundle#end()
 """""""""""""""""""""""""""""""
 filetype plugin indent on         " Enable filetype-specific features
 syntax on                         " Syntax highlighting
-
 set visualbell                    " Use visual bell instead of beeping 
 set noerrorbells
 set hidden                        " Allow to change buffers without saving them
@@ -233,12 +236,12 @@ map ,f :FufFile **/<CR>
 " Powerline 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set laststatus=2
-" Hide the default mode text (e.g. -- INSERT -- below the statusline)
+ "Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode 
 set encoding=utf-8
 "let g:Powerline_symbols = 'fancy'
 
-"" Airline
+" Airline
 "let g:airline_powerline_fonts = 1 
 "set laststatus=2
 "set noshowmode 
