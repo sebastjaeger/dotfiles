@@ -9,10 +9,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bufexplorer.zip'
+Plugin 'fholgado/minibufexpl.vim'
 "Plugin 'ervandew/supertab'
 Plugin 'The-NERD-Commenter'
 Plugin 'The-NERD-tree'
-Plugin 'fholgado/minibufexpl.vim'
 Plugin 'molokai'
 Plugin 'desert256.vim'
 Plugin 'L9'

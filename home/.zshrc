@@ -18,13 +18,12 @@ HISTSIZE=500000
 SAVEHIST=500000
 
 # Example aliases
-alias re="cd ~/research/projects"
-alias apps="cd ~/ps-app-coruscant/apps"
-alias corus="cd ~/ps-app-coruscant"
-alias lando="cd ~/ps-ml-lando"
-alias tmcorus="ssh coruscant -t tmux attach"
-
-alias vundle="vim +PluginInstall! +qall"
+AFILE=$HOME/.zsh-aliases
+if [[ -a $AFILE ]]; then
+    source $AFILE
+fi
+alias vundle="vim +PluginInstall +qall"
+alias vundle-update="vim +PluginInstall! +qall"
 alias vundle-clean="vim +PluginClean! +qall"
 
 # Uncomment the following line to use case-sensitive completion.
