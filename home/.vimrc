@@ -8,25 +8,20 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-"Plugin 'bufexplorer.zip'
 Plugin 'jlanzarotta/bufexplorer'
-"Plugin 'fholgado/minibufexpl.vim'
-Plugin 'minibufexpl.vim'
-"Plugin 'ervandew/supertab'
+Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'The-NERD-Commenter'
-"Plugin 'The-NERD-tree'
 Plugin 'molokai'
 Plugin 'desert256.vim'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'majutsushi/tagbar'
 Plugin 'Lokaltog/powerline'
-"Plugin 'plasticboy/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
-"Plugin 'bling/vim-airline'
 Plugin 'chrisbra/csv.vim'
+"Plugin 'plasticboy/vim-markdown'
+"Plugin 'bling/vim-airline'
 call vundle#end()
 
 """""""""""""""""""""""""""""""
@@ -207,10 +202,9 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " Plugins
 """""""""""""""""""""""""""""""""""
 " MiniBufExplorer settings
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
+let g:miniBufExplUseSingleClick = 1
+noremap <C-TAB> :MBEbn<CR>
+noremap <C-S-TAB> :MBEbp<CR>
 
 " NERD tree
 map <silent> <F10> :NERDTreeToggle<CR>
