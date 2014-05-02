@@ -15,11 +15,14 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'molokai'
 Plugin 'desert256.vim'
 Plugin 'L9'
-Plugin 'FuzzyFinder'
+Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'Lokaltog/powerline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'chrisbra/csv.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'plasticboy/vim-markdown'
 "Plugin 'bling/vim-airline'
 call vundle#end()
@@ -29,7 +32,7 @@ call vundle#end()
 """""""""""""""""""""""""""""""
 filetype plugin indent on         " Enable filetype-specific features
 syntax on                         " Syntax highlighting
-set visualbell                    " Use visual bell instead of beeping 
+set visualbell                    " Use visual bell instead of beeping
 set noerrorbells
 set hidden                        " Allow to change buffers without saving them
 set mouse=ar                      " Use mouse
@@ -102,9 +105,6 @@ set hls                      " Enable search highlighting
 """""""""""""""""""""""""""""
 let mapleader=","
 
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
 " j and k are supposed to jump between lines on the screen
 nnoremap k gk
 nnoremap j gj
@@ -132,18 +132,28 @@ noremap ,, :%s:::g<Left><Left><Left>
 vnoremap > >gv
 vnoremap < <gv
 
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
+
 "Keep indentation when in paste mode
 set pastetoggle=<F2>
 
-if v:version >= 700
-    set list listchars=tab:»·,trail:·
-else
-    set list listchars=tab:>-,trail:-
-endif
-set nolist
-map <silent> <F12> :set list!<CR>
+"if v:version >= 700
+    "set list listchars=tab:»·,trail:·
+"else
+    "set list listchars=tab:>-,trail:-
+"endif
+"set nolist
+"map <silent> <F12> :set list!<CR>
 
 map <silent> <F9> :nohls<CR>
+
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 if has('autocmd')
     autocmd FileType python map <leader>x :!python %<CR>
@@ -203,6 +213,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 """""""""""""""""""""""""""""""""""
 " MiniBufExplorer settings
 let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplCycleArround = 1
 noremap <C-TAB> :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
 
@@ -224,18 +235,26 @@ nmap <silent> <F11> :TagbarToggle<CR>
 "let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
-" FuzzyFinder
-map ,f :FufFile **/<CR>
+" Vim-trailing-whitespace
+map <silent> <F12> :FixWhitespace<CR>
 
-" Powerline 
+" FuzzyFinder
+"map ,f :FufFile **/<CR>
+
+" CtrlP
+"nnoremap <A-t> :CtrlP<CR>
+let g:ctrlp_map = '<A-t>'
+let g:ctrlp_cmd = 'CtrlPMixed'
+
+" Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set laststatus=2
  "Hide the default mode text (e.g. -- INSERT -- below the statusline)
-set noshowmode 
+set noshowmode
 set encoding=utf-8
 "let g:Powerline_symbols = 'fancy'
 
 " Airline
-"let g:airline_powerline_fonts = 1 
+"let g:airline_powerline_fonts = 1
 "set laststatus=2
-"set noshowmode 
+"set noshowmode
