@@ -2,15 +2,15 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Install oh-my-zsh if not installed already
-if ! [[ -d $ZSH ]]; then
-    git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
-fi
+#if ! [[ -d $ZSH ]]; then
+    #git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
+#fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="mytheme"
 
 # Zsh history
 HISTFILE=$HOME/.zhistory
@@ -25,6 +25,11 @@ fi
 alias vundle="vim +PluginInstall +qall"
 alias vundle-update="vim +PluginInstall! +qall"
 alias vundle-clean="vim +PluginClean! +qall"
+
+alias mvd="cd ~/mv_mongo; RESTLET_PORT=8089 ./sincerity start restlet"
+
+alias act=". ./.virtualenv/bin/activate"
+alias deact="deactivate"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

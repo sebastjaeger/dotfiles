@@ -132,10 +132,10 @@ noremap ,, :%s:::g<Left><Left><Left>
 vnoremap > >gv
 vnoremap < <gv
 
-noremap <C-J> <C-W>j
-noremap <C-K> <C-W>k
-noremap <C-H> <C-W>h
-noremap <C-L> <C-W>l
+"noremap <C-J> <C-W>j
+"noremap <C-K> <C-W>k
+"noremap <C-H> <C-W>h
+"noremap <C-L> <C-W>l
 
 "Keep indentation when in paste mode
 set pastetoggle=<F2>
