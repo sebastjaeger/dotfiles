@@ -9,6 +9,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jlanzarotta/bufexplorer'
+"Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -211,11 +212,14 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 """""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""
-" MiniBufExplorer settings
+" MiniBufExplorer
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplCycleArround = 1
 noremap <C-TAB> :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
+
+" BufExplorer
+noremap <silent> <leader>b :BufExplorer<CR>
 
 " NERD tree
 map <silent> <F10> :NERDTreeToggle<CR>
