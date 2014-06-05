@@ -1,7 +1,0 @@
-alias re="cd ~/research/projects"
-alias corus="cd ~/ps-app-coruscant"
-alias apps="cd ~/ps-app-coruscant/apps"
-alias lando="cd ~/ps-ml-lando/lando/new"
-
-alias staging-1="ssh -t staging-coruscant-1 'sudo tmux attach'"
-alias production-1="ssh -t production-coruscant-1 'sudo tmux attach'"
