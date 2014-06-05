@@ -24,6 +24,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'AndrewRadev/splitjoin.vim'
 "Plugin 'plasticboy/vim-markdown'
 "Plugin 'bling/vim-airline'
 call vundle#end()

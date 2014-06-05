@@ -17,19 +17,26 @@ HISTFILE=$HOME/.zhistory
 HISTSIZE=500000
 SAVEHIST=500000
 
-# Example aliases
-AFILE=$HOME/.zsh-aliases
+# External aliases
+AFILE=$HOME/.zshrc-aliases
 if [[ -a $AFILE ]]; then
     source $AFILE
 fi
-alias vundle="vim +PluginInstall +qall"
+
+# Vundle
+alias vundle-install="vim +PluginInstall +qall"
 alias vundle-update="vim +PluginInstall! +qall"
 alias vundle-clean="vim +PluginClean! +qall"
 
-alias mvd="cd ~/mv_mongo; RESTLET_PORT=8089 ./sincerity start restlet"
+# Install oh-my-zsh alias
+alias oh-my-zsh-install="git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
 
+# Virtualenv
 alias act=". ./.virtualenv/bin/activate"
 alias deact="deactivate"
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+
+#alias ipy="ipython --matplotlib=qt"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
