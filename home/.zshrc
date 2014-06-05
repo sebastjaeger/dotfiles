@@ -23,13 +23,21 @@ if [[ -a $AFILE ]]; then
     source $AFILE
 fi
 
+# Make sure Vundle is installed
+#VIMP=$HOME/.vim
+#if ! [[ -d $VIMP ]]; then
+    #git clone https://github.com/gmarik/Vundle.vim.git $VIMP/bundle/Vundle.vim
+    #vundle
+#fi
+
+# Install aliases
+alias install-oh-my-zsh="git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
+alias install-vundle="git clone https://github.com/gmarik/Vundle.vim.git $VIMP/bundle/Vundle.vim"
+
 # Vundle
 alias vundle-install="vim +PluginInstall +qall"
 alias vundle-update="vim +PluginInstall! +qall"
 alias vundle-clean="vim +PluginClean! +qall"
-
-# Install oh-my-zsh alias
-alias oh-my-zsh-install="git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
 
 # Virtualenv
 alias act=". ./.virtualenv/bin/activate"
@@ -82,13 +90,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export PYTHONPATH=${HOME}/lib:
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Make sure Vundle is installed
-VIMP=$HOME/.vim
-if ! [[ -d $VIMP ]]; then
-    git clone https://github.com/gmarik/Vundle.vim.git $VIMP/bundle/Vundle.vim
-    vundle
-fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
