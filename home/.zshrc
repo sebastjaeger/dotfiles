@@ -47,6 +47,10 @@ alias act=". ./.virtualenv/bin/activate"
 alias deact="deactivate"
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
+# Vim
+alias gvim='gvim --servername VIM1'
+alias gadd='gvim --servername VIM1 --remote'
+
 #alias ipy="ipython --matplotlib=qt"
 
 # Uncomment the following line to use case-sensitive completion.

@@ -14,6 +14,7 @@ Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'molokai'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'desert256.vim'
 Plugin 'L9'
 Plugin 'kien/ctrlp.vim'
@@ -25,6 +26,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'vitalk/vim-simple-todo'
+Plugin 'vim-scripts/bufpos'
 "Plugin 'plasticboy/vim-markdown'
 "Plugin 'bling/vim-airline'
 call vundle#end()
@@ -76,8 +79,14 @@ if has('gui_running')
     set guioptions-=T
     set guioptions-=m
 endif
+
+" Molokai
 colorscheme molokai
 
+" Solarized
+"set background=light
+"set background=dark
+"colorscheme solarized
 
 """""""""""""""""""""""""""""""
 " Tab and indent
@@ -105,6 +114,9 @@ set hls                      " Enable search highlighting
 """""""""""""""""""""""""""""
 " Mappings
 """""""""""""""""""""""""""""
+" Get rid of Ex mode
+map Q <Nop>
+
 let mapleader=","
 
 " j and k are supposed to jump between lines on the screen
@@ -129,26 +141,18 @@ noremap <S-Enter> mzO<Esc>`z
 noremap <C-Enter> mzo<Esc>`z
 noremap <Space> i <Esc>l
 
-noremap ,, :%s:::g<Left><Left><Left>
+"noremap ,, :%s:::g<Left><Left><Left>
 
 vnoremap > >gv
 vnoremap < <gv
 
-"noremap <C-J> <C-W>j
-"noremap <C-K> <C-W>k
-"noremap <C-H> <C-W>h
-"noremap <C-L> <C-W>l
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
 
 "Keep indentation when in paste mode
 set pastetoggle=<F2>
-
-"if v:version >= 700
-    "set list listchars=tab:»·,trail:·
-"else
-    "set list listchars=tab:>-,trail:-
-"endif
-"set nolist
-"map <silent> <F12> :set list!<CR>
 
 map <silent> <F9> :nohls<CR>
 
@@ -157,9 +161,9 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
-if has('autocmd')
-    autocmd FileType python map <leader>x :!python %<CR>
-endif
+"if has('autocmd')
+    "autocmd FileType python map <leader>x :!python %<CR>
+"endif
 
 "function! ToggleCw()
     "let g:cw_on = exists('g:cw_on') ? !g:cw_on : 0
@@ -209,6 +213,8 @@ endif
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+" Open md files in markdown mode
+autocmd BufEnter *.md set filetype=markdown
 
 """""""""""""""""""""""""""""""""""
 " Plugins
@@ -243,9 +249,6 @@ nmap <silent> <F11> :TagbarToggle<CR>
 " Vim-trailing-whitespace
 map <silent> <F12> :FixWhitespace<CR>
 
-" FuzzyFinder
-"map ,f :FufFile **/<CR>
-
 " CtrlP
 "nnoremap <A-t> :CtrlP<CR>
 let g:ctrlp_map = '<A-t>'
@@ -254,7 +257,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 " Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set laststatus=2
- "Hide the default mode text (e.g. -- INSERT -- below the statusline)
+" Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode
 set encoding=utf-8
 "let g:Powerline_symbols = 'fancy'
