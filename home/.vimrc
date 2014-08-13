@@ -25,9 +25,10 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'vitalk/vim-simple-todo'
 Plugin 'vim-scripts/bufpos'
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 "Plugin 'bling/vim-airline'
 call vundle#end()
@@ -69,6 +70,8 @@ set directory=~/.vim_backups//
 set tags=tags;$HOME
 set nu
 
+set autochdir                 " Working directory where active buffer is located
+
 
 """""""""""""""""""""""""""""""
 " Looks
@@ -81,12 +84,12 @@ if has('gui_running')
 endif
 
 " Molokai
-colorscheme molokai
+"colorscheme molokai
 
 " Solarized
 "set background=light
-"set background=dark
-"colorscheme solarized
+set background=dark
+colorscheme solarized
 
 """""""""""""""""""""""""""""""
 " Tab and indent
@@ -229,6 +232,7 @@ noremap <C-S-TAB> :MBEbp<CR>
 noremap <silent> <leader>b :BufExplorer<CR>
 
 " NERD tree
+let NERDTreeChDirMode=2
 map <silent> <F10> :NERDTreeToggle<CR>
 
 " Tagbar
