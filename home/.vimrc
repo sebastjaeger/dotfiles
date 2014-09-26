@@ -13,6 +13,7 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/syntastic'
 Plugin 'molokai'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'desert256.vim'
@@ -21,7 +22,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'Lokaltog/powerline'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'chrisbra/csv.vim'
+"Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Lokaltog/vim-easymotion'
@@ -31,6 +32,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 "Plugin 'bling/vim-airline'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
 call vundle#end()
 
 """""""""""""""""""""""""""""""
@@ -232,11 +236,14 @@ noremap <C-S-TAB> :MBEbp<CR>
 noremap <silent> <leader>b :BufExplorer<CR>
 
 " NERD tree
-let NERDTreeChDirMode=2
+let g:NERDTreeChDirMode=2
 map <silent> <F10> :NERDTreeToggle<CR>
 
 " Tagbar
 nmap <silent> <F11> :TagbarToggle<CR>
+
+" Tabularize
+map <leader>= :Tabularize /^[^=]*\zs<CR>
 
 "" Omni complete
 "set omnifunc=syntaxcomplete#Complete
@@ -264,9 +271,16 @@ set laststatus=2
 " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode
 set encoding=utf-8
-"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
 
 " Airline
 "let g:airline_powerline_fonts = 1
 "set laststatus=2
 "set noshowmode
+"let g:airline#extensions#tabline#enabled = 1
+
+" Ultisnips
+"Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
