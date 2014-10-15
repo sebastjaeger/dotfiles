@@ -34,6 +34,7 @@ Plugin 'godlygeek/tabular'
 "Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'bruno-/vim-husk'
 
 call vundle#end()
 

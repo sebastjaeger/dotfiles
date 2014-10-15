@@ -33,6 +33,8 @@ fi
     #vundle
 #fi
 
+alias ltr="ls -ltr"
+
 # Install aliases
 alias install-oh-my-zsh="git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
 alias install-vundle="git clone https://github.com/gmarik/Vundle.vim.git $VIMP/bundle/Vundle.vim"
