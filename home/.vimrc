@@ -283,7 +283,7 @@ let g:ctrlp_cmd='CtrlPMixed'
 
 " Airline
 let g:airline_powerline_fonts=1
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
 set laststatus=2
 set noshowmode
 let g:airline#extensions#tabline#enabled=1
