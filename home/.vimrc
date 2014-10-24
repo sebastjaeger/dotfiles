@@ -10,31 +10,33 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jlanzarotta/bufexplorer'
 "Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'fholgado/minibufexpl.vim'
+Plugin 'vim-scripts/bufpos'
+"Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
-Plugin 'molokai'
+"Plugin 'molokai'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'desert256.vim'
+"Plugin 'desert256.vim'
 Plugin 'L9'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Lokaltog/powerline'
+"Plugin 'Lokaltog/powerline'
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vitalk/vim-simple-todo'
-Plugin 'vim-scripts/bufpos'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
-"Plugin 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'bruno-/vim-husk'
+Plugin 'vim-scripts/YankRing.vim'
+"Plugin 'sjbach/lusty'
 
 call vundle#end()
 
@@ -76,6 +78,7 @@ set tags=tags;$HOME
 set nu
 
 set autochdir                 " Working directory where active buffer is located
+set encoding=utf-8
 
 
 """""""""""""""""""""""""""""""
@@ -234,11 +237,15 @@ noremap <C-TAB> :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
 
 " BufExplorer
-noremap <silent> <leader>b :BufExplorer<CR>
+"unmap ,be
+"noremap <silent> <leader>b :BufExplorer<CR>
+"noremap <silent> j :BufExplorer<CR>
 
 " NERD tree
 let g:NERDTreeChDirMode=2
 map <silent> <F10> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.sw.$', '\.pyc$', '\.png$', '\.pdf$', '\.pkl$']
+
 
 " Tagbar
 nmap <silent> <F11> :TagbarToggle<CR>
@@ -263,22 +270,23 @@ map <silent> <F12> :FixWhitespace<CR>
 
 " CtrlP
 "nnoremap <A-t> :CtrlP<CR>
-let g:ctrlp_map = '<A-t>'
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_map='<A-t>'
+let g:ctrlp_cmd='CtrlPMixed'
 
 " Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set laststatus=2
-" Hide the default mode text (e.g. -- INSERT -- below the statusline)
-set noshowmode
-set encoding=utf-8
-let g:Powerline_symbols = 'fancy'
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"set laststatus=2
+"" Hide the default mode text (e.g. -- INSERT -- below the statusline)
+"set noshowmode
+"set encoding=utf-8
+"let g:Powerline_symbols = 'fancy'
 
 " Airline
-"let g:airline_powerline_fonts = 1
-"set laststatus=2
-"set noshowmode
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+set laststatus=2
+set noshowmode
+let g:airline#extensions#tabline#enabled=1
 
 " Ultisnips
 "Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
