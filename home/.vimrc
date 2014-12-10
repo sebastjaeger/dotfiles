@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jlanzarotta/bufexplorer'
 "Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'vim-scripts/bufpos'
+"Plugin 'vim-scripts/bufpos'
 "Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -54,7 +54,7 @@ set backspace=indent,eol,start    " Allow backspacing over everything in insert
                                   " mode
 set wildmenu                      " Enable wildmenu for tab-completion
 set wildmode=list:longest,full
-set wildignore=*.o,*.obj,*~,*.swp,*.pyc,*.so
+set wildignore=*.o,*.obj,*~,*.swp,*.pyc,*.so,*.pkl,*.npy,*.pdf
 
 set history=1000
 set undolevels=1000
@@ -98,6 +98,7 @@ endif
 "set background=light
 set background=dark
 colorscheme solarized
+
 
 """""""""""""""""""""""""""""""
 " Tab and indent
@@ -221,11 +222,14 @@ if has('autocmd')
 endif
 
 " Close preview window when completion finished
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
+" Does not work with Command Line window (q:)
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+autocmd CompleteDone * pclose
 " Open md files in markdown mode
 autocmd BufEnter *.md set filetype=markdown
+
+set colorcolumn=95
 
 """""""""""""""""""""""""""""""""""
 " Plugins
@@ -244,7 +248,7 @@ noremap <C-S-TAB> :MBEbp<CR>
 " NERD tree
 let g:NERDTreeChDirMode=2
 map <silent> <F10> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.sw.$', '\.pyc$', '\.png$', '\.pdf$', '\.pkl$']
+let NERDTreeIgnore=['\.so$', '\.sw.$', '\.pyc$', '\.png$', '\.pdf$', '\.pkl$', '\.npy$']
 
 
 " Tagbar
@@ -283,10 +287,23 @@ let g:ctrlp_cmd='CtrlPMixed'
 
 " Airline
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tagbar#enabled=1
+let g:airline#extensions#whitespace#enabled=1
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
 set laststatus=2
 set noshowmode
-let g:airline#extensions#tabline#enabled=1
+
+let g:airline#extensions#tabline#buffer_idx_mode=1
+nmap <A-1> <Plug>AirlineSelectTab1
+nmap <A-2> <Plug>AirlineSelectTab2
+nmap <A-3> <Plug>AirlineSelectTab3
+nmap <A-4> <Plug>AirlineSelectTab4
+nmap <A-5> <Plug>AirlineSelectTab5
+nmap <A-6> <Plug>AirlineSelectTab6
+nmap <A-7> <Plug>AirlineSelectTab7
+nmap <A-8> <Plug>AirlineSelectTab8
+nmap <A-9> <Plug>AirlineSelectTab9
 
 " Ultisnips
 "Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
