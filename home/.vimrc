@@ -36,6 +36,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'bruno-/vim-husk'
 Plugin 'vim-scripts/YankRing.vim'
+Plugin 'hynek/vim-python-pep8-indent'
+
 "Plugin 'sjbach/lusty'
 
 call vundle#end()
@@ -98,7 +100,7 @@ endif
 "set background=light
 set background=dark
 colorscheme solarized
-
+set t_Co=256
 
 """""""""""""""""""""""""""""""
 " Tab and indent
@@ -248,6 +250,7 @@ noremap <C-S-TAB> :MBEbp<CR>
 " NERD tree
 let g:NERDTreeChDirMode=2
 map <silent> <F10> :NERDTreeToggle<CR>
+map <silent> <S-F10> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.so$', '\.sw.$', '\.pyc$', '\.png$', '\.pdf$', '\.pkl$', '\.npy$']
 
 
