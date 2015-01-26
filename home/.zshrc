@@ -53,6 +53,8 @@ alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance
 alias gvim='gvim --servername VIM1'
 alias gadd='gvim --servername VIM1 --remote'
 
+# Fixes font stuff in tmux
+alias tmux="TERM=xterm-256color /usr/bin/tmux"
 #alias ipy="ipython --matplotlib=qt"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -132,3 +134,6 @@ bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/sebastian/.gvm/bin/gvm-init.sh" ]] && source "/home/sebastian/.gvm/bin/gvm-init.sh"

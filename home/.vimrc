@@ -1,7 +1,7 @@
 ﻿"""""""""""""""""""""""""""""""
 " Vundle
 """""""""""""""""""""""""""""""
-set nocompatible                  " Disable vi compatibility mode
+set nocompatible
 filetype on
 filetype off
 
@@ -9,38 +9,28 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jlanzarotta/bufexplorer'
-"Plugin 'jeetsukumaran/vim-buffergator'
-"Plugin 'vim-scripts/bufpos'
-"Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'molokai'
+Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
-"Plugin 'desert256.vim'
 Plugin 'L9'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-"Plugin 'Lokaltog/powerline'
 Plugin 'Valloric/YouCompleteMe'
-"Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vitalk/vim-simple-todo'
 Plugin 'tpope/vim-fugitive'
-Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
 Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'bruno-/vim-husk'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'hynek/vim-python-pep8-indent'
-
-"Plugin 'sjbach/lusty'
-
+Plugin 'duff/vim-scratch'
 call vundle#end()
+
 
 """""""""""""""""""""""""""""""
 " General
@@ -74,7 +64,13 @@ set whichwrap+=<,>,[,],h,l   " Allow specified keys that move the cursor
 
 silent execute '!mkdir -p ~/.vim_backups'
 set backupdir=~/.vim_backups//
-set directory=~/.vim_backups//
+silent execute '!mkdir -p ~/.vim_swaps'
+set dir=~/.vim_swaps//
+
+silent execute '!mkdir -p ~/.vim_undos'
+set undodir=~/.vim_undos//
+set undofile
+set undoreload=10000        " number of lines to save for undo
 
 set tags=tags;$HOME
 set nu
@@ -93,14 +89,10 @@ if has('gui_running')
     set guioptions-=m
 endif
 
-" Molokai
-"colorscheme molokai
-
-" Solarized
-"set background=light
 set background=dark
 colorscheme solarized
 set t_Co=256
+
 
 """""""""""""""""""""""""""""""
 " Tab and indent
@@ -112,7 +104,6 @@ set shiftwidth=4               " Number of columns that text is indented with
                                " the reindent " operations
 set smarttab                   " Use shiftwidth instead of tabstop at start
                                " of line (?)
-"set smartindent
 set autoindent
 
 
@@ -133,7 +124,7 @@ map Q <Nop>
 
 let mapleader=","
 
-" j and k are supposed to jump between lines on the screen
+" j and k jump between lines on the screen
 nnoremap k gk
 nnoremap j gj
 nnoremap gk k
@@ -174,26 +165,6 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-
-"if has('autocmd')
-    "autocmd FileType python map <leader>x :!python %<CR>
-"endif
-
-"function! ToggleCw()
-    "let g:cw_on = exists('g:cw_on') ? !g:cw_on : 0
-    "if g:cw_on
-        "cclose
-    "else
-        "copen
-    "endif
-"endfunction
-"map <silent> <F12> :call ToggleCw()<CR>
-"map <silent> <leader>c :silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++ .<CR>
-"function! UpdateTags()
-  "execute ":!ctags -R --languages=C++ --c++-kinds=+p --fields=+iaS --extra=+q ./"
-  "echohl StatusLine | echo "Tags updated" | echohl None
-"endfunction
-"nnoremap <leader>c :call UpdateTags()
 cmap w!! w !sudo tee % >/dev/null
 
 
@@ -228,31 +199,21 @@ endif
 "autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 autocmd CompleteDone * pclose
+
 " Open md files in markdown mode
 autocmd BufEnter *.md set filetype=markdown
 
 set colorcolumn=95
 
+
 """""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""
-" MiniBufExplorer
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplCycleArround = 1
-noremap <C-TAB> :MBEbn<CR>
-noremap <C-S-TAB> :MBEbp<CR>
-
-" BufExplorer
-"unmap ,be
-"noremap <silent> <leader>b :BufExplorer<CR>
-"noremap <silent> j :BufExplorer<CR>
-
 " NERD tree
 let g:NERDTreeChDirMode=2
 map <silent> <F10> :NERDTreeToggle<CR>
 map <silent> <S-F10> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.so$', '\.sw.$', '\.pyc$', '\.png$', '\.pdf$', '\.pkl$', '\.npy$']
-
 
 " Tagbar
 nmap <silent> <F11> :TagbarToggle<CR>
@@ -268,10 +229,6 @@ map <leader>= :Tabularize /^[^=]*\zs<CR>
     "highlight Pmenu ctermbg=238 gui=bold
 "endif
 
-"" Supertab
-"let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-
 " Vim-trailing-whitespace
 map <silent> <F12> :FixWhitespace<CR>
 
@@ -279,14 +236,6 @@ map <silent> <F12> :FixWhitespace<CR>
 "nnoremap <A-t> :CtrlP<CR>
 let g:ctrlp_map='<A-t>'
 let g:ctrlp_cmd='CtrlPMixed'
-
-" Powerline
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-"set laststatus=2
-"" Hide the default mode text (e.g. -- INSERT -- below the statusline)
-"set noshowmode
-"set encoding=utf-8
-"let g:Powerline_symbols = 'fancy'
 
 " Airline
 let g:airline_powerline_fonts=1
@@ -313,3 +262,13 @@ nmap <A-9> <Plug>AirlineSelectTab9
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
