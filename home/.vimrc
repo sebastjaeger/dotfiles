@@ -29,6 +29,9 @@ Plugin 'bruno-/vim-husk'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'duff/vim-scratch'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'pangloss/vim-javascript'
+
 call vundle#end()
 
 
@@ -202,6 +205,9 @@ autocmd CompleteDone * pclose
 
 " Open md files in markdown mode
 autocmd BufEnter *.md set filetype=markdown
+
+" Salt files
+autocmd BufRead,BufNewFile *.sls setlocal filetype=yaml
 
 set colorcolumn=95
 
