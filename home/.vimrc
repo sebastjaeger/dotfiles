@@ -15,18 +15,16 @@ Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'L9'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Lokaltog/vim-easymotion'
-"Plugin 'vitalk/vim-simple-todo'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
 Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'bruno-/vim-husk'
-"Plugin 'vim-scripts/YankRing.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'duff/vim-scratch'
 Plugin 'ekalinin/Dockerfile.vim'
@@ -75,9 +73,8 @@ set undofile
 set undoreload=10000        " number of lines to save for undo
 
 set tags=tags;$HOME
-set nu
 
-set autochdir                 " Working directory where active buffer is located
+set autochdir               " Working directory where active buffer is located
 set encoding=utf-8
 
 
@@ -85,6 +82,7 @@ set encoding=utf-8
 " Looks
 """""""""""""""""""""""""""""""
 set cursorline
+set number
 
 if has('gui_running')
     set guioptions-=T
@@ -115,7 +113,7 @@ set autoindent
 set incsearch                " Enable incremental search
 set ignorecase               " Case-insensitive search
 set smartcase                " Unless there are uppercase letters
-set hls                      " Enable search highlighting
+set hlsearch                 " Enable search highlighting
 
 
 """""""""""""""""""""""""""""
@@ -132,23 +130,16 @@ nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
-" Same for arrows
-nnoremap <up> gk
-nnoremap <down> gj
-inoremap <up> <C-o>gk
-inoremap <down> <C-o>gj
-
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 noremap Y y$
-noremap <Backspace> X
 noremap <CR> i<CR><Esc>
 noremap <S-Enter> mzO<Esc>`z
 noremap <C-Enter> mzo<Esc>`z
 noremap <Space> i <Esc>l
 
-"noremap ,, :%s:::g<Left><Left><Left>
+"noremap <leader>, :%s:::g<Left><Left><Left>
 
 vnoremap > >gv
 vnoremap < <gv
@@ -163,8 +154,8 @@ set pastetoggle=<F2>
 
 map <silent> <F9> :nohls<CR>
 
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>ve :e $MYVIMRC<CR>
+nmap <silent> <leader>vs :so $MYVIMRC<CR>
 
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 cmap w!! w !sudo tee % >/dev/null
@@ -220,49 +211,36 @@ map <silent> <F10> :NERDTreeToggle<CR>
 map <silent> <S-F10> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.so$', '\.sw.$', '\.pyc$', '\.png$', '\.pdf$', '\.pkl$', '\.npy$']
 
-" Tagbar
-nmap <silent> <F11> :TagbarToggle<CR>
-
-" Tabularize
-map <leader>= :Tabularize /^[^=]*\zs<CR>
-
-"" Omni complete
-"set omnifunc=syntaxcomplete#Complete
-"if has('gui_running')
-    "highlight Pmenu guibg=brown gui=bold
-"else
-    "highlight Pmenu ctermbg=238 gui=bold
-"endif
-
 " Vim-trailing-whitespace
 map <silent> <F12> :FixWhitespace<CR>
 
 " CtrlP
-"nnoremap <A-t> :CtrlP<CR>
-"let g:ctrlp_map='<A-t>'
-"let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_cmd='CtrlPMixed'
-let g:ctrlp_map='<c-p>'
+"let g:ctrlp_cmd='CtrlPMixed'
+"let g:ctrlp_map='<c-p>'
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>e :CtrlPBuffer<CR>
+nnoremap <leader>r :CtrlPMRUFiles<CR>
+nnoremap <leader>t :CtrlPBufTagAll<CR>
 
 " Airline
 let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tagbar#enabled=1
+"let g:airline#extensions#tabline#enabled=1
+"let g:airline#extensions#tagbar#enabled=1
 let g:airline#extensions#whitespace#enabled=1
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
 set laststatus=2
 set noshowmode
 
-let g:airline#extensions#tabline#buffer_idx_mode=1
-nmap <A-1> <Plug>AirlineSelectTab1
-nmap <A-2> <Plug>AirlineSelectTab2
-nmap <A-3> <Plug>AirlineSelectTab3
-nmap <A-4> <Plug>AirlineSelectTab4
-nmap <A-5> <Plug>AirlineSelectTab5
-nmap <A-6> <Plug>AirlineSelectTab6
-nmap <A-7> <Plug>AirlineSelectTab7
-nmap <A-8> <Plug>AirlineSelectTab8
-nmap <A-9> <Plug>AirlineSelectTab9
+"let g:airline#extensions#tabline#buffer_idx_mode=1
+"nmap <A-1> <Plug>AirlineSelectTab1
+"nmap <A-2> <Plug>AirlineSelectTab2
+"nmap <A-3> <Plug>AirlineSelectTab3
+"nmap <A-4> <Plug>AirlineSelectTab4
+"nmap <A-5> <Plug>AirlineSelectTab5
+"nmap <A-6> <Plug>AirlineSelectTab6
+"nmap <A-7> <Plug>AirlineSelectTab7
+"nmap <A-8> <Plug>AirlineSelectTab8
+"nmap <A-9> <Plug>AirlineSelectTab9
 
 " Ultisnips
 "Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
