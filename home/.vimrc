@@ -15,23 +15,22 @@ Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'L9'
 Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'vitalk/vim-simple-todo'
+"Plugin 'vitalk/vim-simple-todo'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'bruno-/vim-husk'
-Plugin 'vim-scripts/YankRing.vim'
+"Plugin 'vim-scripts/YankRing.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'duff/vim-scratch'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'pangloss/vim-javascript'
-
 call vundle#end()
 
 
@@ -240,8 +239,10 @@ map <silent> <F12> :FixWhitespace<CR>
 
 " CtrlP
 "nnoremap <A-t> :CtrlP<CR>
-let g:ctrlp_map='<A-t>'
+"let g:ctrlp_map='<A-t>'
+"let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_cmd='CtrlPMixed'
+let g:ctrlp_map='<c-p>'
 
 " Airline
 let g:airline_powerline_fonts=1
