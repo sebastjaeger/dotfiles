@@ -29,6 +29,8 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'duff/vim-scratch'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 call vundle#end()
 
 
@@ -46,7 +48,8 @@ set backspace=indent,eol,start    " Allow backspacing over everything in insert
                                   " mode
 set wildmenu                      " Enable wildmenu for tab-completion
 set wildmode=list:longest,full
-set wildignore=*.o,*.obj,*~,*.swp,*.pyc,*.so,*.pkl,*.npy,*.pdf
+set wildignore+=*.o,*.obj,*~,*.swp,*.pyc,*.so,*.pkl,*.npy,*.pdf
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 set history=1000
 set undolevels=1000
@@ -62,13 +65,14 @@ set whichwrap+=<,>,[,],h,l   " Allow specified keys that move the cursor
                              " in the line. b (backspace), s (space) and the
                              " arrows
 
-silent execute '!mkdir -p ~/.vim_backups'
-set backupdir=~/.vim_backups//
-silent execute '!mkdir -p ~/.vim_swaps'
-set dir=~/.vim_swaps//
+silent execute '!mkdir -p ~/.vim-data/backups'
+set backupdir=~/.vim-data/backups//
 
-silent execute '!mkdir -p ~/.vim_undos'
-set undodir=~/.vim_undos//
+silent execute '!mkdir -p ~/.vim-data/swaps'
+set dir=~/.vim-data/swaps//
+
+silent execute '!mkdir -p ~/.vim-data/undos'
+set undodir=~/.vim-data/undos//
 set undofile
 set undoreload=10000        " number of lines to save for undo
 
@@ -217,6 +221,10 @@ map <silent> <F12> :FixWhitespace<CR>
 " CtrlP
 "let g:ctrlp_cmd='CtrlPMixed'
 "let g:ctrlp_map='<c-p>'
+let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_show_hidden=1
+let g:ctrlp_by_filename=0
+let g:ctrlp_match_window='max:20'
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>e :CtrlPBuffer<CR>
 nnoremap <leader>r :CtrlPMRUFiles<CR>
@@ -248,12 +256,17 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" Easytags
+silent execute '!mkdir -p ~/.vim-data'
+let g:easytags_file='~/.vim-data/tags'
+let g:easytags_async=1
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
