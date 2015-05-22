@@ -48,8 +48,9 @@ set backspace=indent,eol,start    " Allow backspacing over everything in insert
                                   " mode
 set wildmenu                      " Enable wildmenu for tab-completion
 set wildmode=list:longest,full
+
+" Cannot ignore .git here. If we do, fugitive does not work properly anymore
 set wildignore+=*.o,*.obj,*~,*.swp,*.pyc,*.so,*.pkl,*.npy,*.pdf
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 set history=1000
 set undolevels=1000
@@ -231,10 +232,13 @@ nnoremap <leader>r :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPBufTagAll<CR>
 
 " Airline
-let g:airline_powerline_fonts=1
+"let g:airline_powerline_fonts=1
 "let g:airline#extensions#tabline#enabled=1
 "let g:airline#extensions#tagbar#enabled=1
-let g:airline#extensions#whitespace#enabled=1
+"let g:airline#extensions#whitespace#enabled=1
+let g:airline_left_sep=''   " This looks decent if powerline fonts are not used
+let g:airline_right_sep=''
+
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
 set laststatus=2
 set noshowmode
