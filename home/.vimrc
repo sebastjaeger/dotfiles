@@ -31,6 +31,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+Plugin 'kien/rainbow_parentheses.vim'
 call vundle#end()
 
 
@@ -236,6 +237,7 @@ nnoremap <leader>t :CtrlPBufTagAll<CR>
 "let g:airline#extensions#tabline#enabled=1
 "let g:airline#extensions#tagbar#enabled=1
 "let g:airline#extensions#whitespace#enabled=1
+let g:airline#extensions#syntastic#enabled=1
 let g:airline_left_sep=''   " This looks decent if powerline fonts are not used
 let g:airline_right_sep=''
 
@@ -274,3 +276,10 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
+
+" Rainbow Parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
