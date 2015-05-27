@@ -16,11 +16,11 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'L9'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -31,7 +31,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'luochen1990/rainbow'
 call vundle#end()
 
 
@@ -278,8 +278,4 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 
 " Rainbow Parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
+let g:rainbow_active=1
