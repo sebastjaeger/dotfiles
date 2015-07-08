@@ -49,3 +49,5 @@ Thumbs.db
 *.npy
 *.png
 *.jpg
+*.sublime-project
+*.sublime-workspace

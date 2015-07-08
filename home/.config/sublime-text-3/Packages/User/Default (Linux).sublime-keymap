@@ -1,0 +1,3 @@
+[
+	{ "keys": ["ctrl+alt+o"], "command": "prompt_add_folder" }
+]
