@@ -2,7 +2,6 @@
 	"always_show_minimap_viewport": true,
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
-	"fade_fold_buttons": false,
 	"file_exclude_patterns":
 	[
 		"*.pyc",
@@ -10,9 +9,7 @@
 		"*.obj",
 		"*.o",
 		"*.a",
-		"*.lib",
 		"*.so",
-		"*.dylib",
 		"*.pdb",
 		"*.idb",
 		".DS_Store",
