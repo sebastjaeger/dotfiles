@@ -5,6 +5,8 @@
 	"installed_packages":
 	[
 		"Block Cursor Everywhere",
+		"Git",
+		"Git-StatusBar",
 		"Package Control",
 		"SideBarEnhancements",
 		"Solarized Color Scheme",
