@@ -1,0 +1,31 @@
+"*":
+  "exception-reporting":
+    userId: "bcc1ef50-e84d-20ec-ed51-27dc89d2af33"
+  welcome:
+    showOnStartup: false
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+  core:
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+    ignoredNames: [
+      "*.pyc"
+      "*.pkl"
+      "*.png"
+      "*.jpg"
+      "*.npy"
+      "*.so"
+      "*.o"
+    ]
+  editor:
+    invisibles: {}
+    tabLength: 4
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  "autocomplete-plus":
+    confirmCompletion: "enter"
+  "vim-surround": {}
+  "git-diff": {}
