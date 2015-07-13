@@ -4,3 +4,6 @@
   'enter': 'autocomplete-plus:confirm'
   'up': 'unset!'
   'down': 'unset!'
+
+'.platform-linux atom-text-editor':
+  'ctrl-shift-L': 'editor:split-selections-into-lines'
