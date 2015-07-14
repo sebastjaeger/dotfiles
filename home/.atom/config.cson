@@ -29,3 +29,5 @@
     confirmCompletion: "enter"
   "vim-surround": {}
   "git-diff": {}
+  "one-dark-ui": {}
+  "project-manager": {}

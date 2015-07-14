@@ -6,4 +6,9 @@
   'down': 'unset!'
 
 '.platform-linux atom-text-editor':
+  'ctrl-t': 'symbols-view:toggle-file-symbols'
   'ctrl-shift-L': 'editor:split-selections-into-lines'
+
+'atom-text-editor.vim-mode:not(.insert-mode)':
+  'ctrl-d': 'unset!'
+  'ctrl-f': 'unset!'
