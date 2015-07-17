@@ -18,7 +18,9 @@
       "*.npy"
       "*.so"
       "*.o"
+      "__pycache__"
     ]
+    audioBeep: false
   editor:
     invisibles: {}
     tabLength: 4
@@ -31,3 +33,7 @@
   "git-diff": {}
   "one-dark-ui": {}
   "project-manager": {}
+  Hydrogen: {}
+  "markdown-preview": {}
+  tabs: {}
+  "merge-conflicts": {}
