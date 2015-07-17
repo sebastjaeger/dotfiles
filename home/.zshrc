@@ -20,12 +20,6 @@ HISTFILE=$HOME/.zhistory
 HISTSIZE=500000
 SAVEHIST=500000
 
-# External aliases
-AFILE=$HOME/.zshrc-aliases
-if [[ -a $AFILE ]]; then
-    source $AFILE
-fi
-
 # Make sure Vundle is installed
 #VIMP=$HOME/.vim
 #if ! [[ -d $VIMP ]]; then
@@ -45,13 +39,7 @@ alias vundle-update="vim +PluginInstall! +qall"
 alias vundle-clean="vim +PluginClean! +qall"
 
 # Virtualenv
-alias act=". ./.virtualenv/bin/activate"
 alias deact="deactivate"
-alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
-
-# Vim
-alias gvim='gvim --servername VIM1'
-alias gadd='gvim --servername VIM1 --remote'
 
 # Fixes font stuff in tmux
 alias tmux="TERM=xterm-256color /usr/bin/tmux"
@@ -134,6 +122,17 @@ bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+DFILE=$HOME/.dbs
+if [[ -a $DFILE ]]; then
+    source $DFILE
+fi
+
+# External aliases
+AFILE=$HOME/.zshrc-aliases
+if [[ -a $AFILE ]]; then
+    source $AFILE
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/home/sebastian/.gvm/bin/gvm-init.sh" ]] && source "/home/sebastian/.gvm/bin/gvm-init.sh"
