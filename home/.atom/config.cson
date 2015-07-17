@@ -21,9 +21,14 @@
       "__pycache__"
     ]
     audioBeep: false
+    disabledPackages: [
+      "symbols-view"
+      "symbol-gen"
+    ]
   editor:
     invisibles: {}
     tabLength: 4
+    showIndentGuide: true
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
