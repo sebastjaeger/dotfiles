@@ -25,6 +25,8 @@
 *.log
 *.sqlite
 *.out
+.tags
+.tags1
 
 # OS generated files #
 ######################
@@ -51,3 +53,4 @@ Thumbs.db
 *.jpg
 *.sublime-project
 *.sublime-workspace
+*.ipynb_checkpoints
