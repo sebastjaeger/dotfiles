@@ -29,6 +29,7 @@
     invisibles: {}
     tabLength: 4
     showIndentGuide: true
+    scrollPastEnd: true
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
@@ -39,6 +40,10 @@
   "one-dark-ui": {}
   "project-manager": {}
   Hydrogen: {}
-  "markdown-preview": {}
+  "markdown-preview":
+    breakOnSingleNewline: true
   tabs: {}
   "merge-conflicts": {}
+  "atom-pair": {}
+  zentabs:
+    neverCloseUnsaved: true
