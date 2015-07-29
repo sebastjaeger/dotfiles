@@ -128,8 +128,7 @@ if [[ -a $DFILE ]]; then
     source $DFILE
 fi
 
-# External aliases
-AFILE=$HOME/.zshrc-aliases
+AFILE=$HOME/.profile
 if [[ -a $AFILE ]]; then
     source $AFILE
 fi
