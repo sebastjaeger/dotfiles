@@ -100,6 +100,12 @@ set background=dark
 colorscheme solarized
 set t_Co=256
 
+if has("gui_macvim")
+    set guifont=Menlo:h13
+else
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
+endif
+
 
 """""""""""""""""""""""""""""""
 " Tab and indent
@@ -242,7 +248,6 @@ let g:airline#extensions#syntastic#enabled=1
 let g:airline_left_sep=''   " This looks decent if powerline fonts are not used
 let g:airline_right_sep=''
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
 set laststatus=2
 set noshowmode
 
