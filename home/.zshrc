@@ -1,11 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Install oh-my-zsh if not installed already
-#if ! [[ -d $ZSH ]]; then
-    #git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
-#fi
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -14,36 +9,6 @@ ZSH_THEME="mytheme"
 if [[ ! -a ~/.oh-my-zsh/themes/$ZSH_THEME.zsh-theme ]]; then
     ZSH_THEME="robbyrussell"
 fi
-
-# Zsh history
-HISTFILE=$HOME/.zhistory
-HISTSIZE=500000
-SAVEHIST=500000
-
-# Make sure Vundle is installed
-#VIMP=$HOME/.vim
-#if ! [[ -d $VIMP ]]; then
-    #git clone https://github.com/gmarik/Vundle.vim.git $VIMP/bundle/Vundle.vim
-    #vundle
-#fi
-
-alias ltr="ls -ltr"
-
-# Install aliases
-alias install-oh-my-zsh="git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
-alias install-vundle="git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
-
-# Vundle
-alias vundle-install="vim +PluginInstall +qall"
-alias vundle-update="vim +PluginInstall! +qall"
-alias vundle-clean="vim +PluginClean! +qall"
-
-# Virtualenv
-alias deact="deactivate"
-
-# Fixes font stuff in tmux
-alias tmux="TERM=xterm-256color /usr/bin/tmux"
-#alias ipy="ipython --matplotlib=qt"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -87,6 +52,19 @@ plugins=(zsh-syntax-highlighting git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+HISTFILE=$HOME/.zhistory
+HISTSIZE=500000
+SAVEHIST=500000
+
+alias ltr="ls -ltr"
+
+alias vundle-install="vim +PluginInstall +qall"
+alias vundle-update="vim +PluginInstall! +qall"
+alias vundle-clean="vim +PluginClean! +qall"
+
+alias deact="deactivate"
+alias tmux="TERM=xterm-256color /usr/bin/tmux"
+
 export PYTHONPATH=${HOME}/lib:
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -95,33 +73,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='gvim'
-fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# History search
-#bindkey '\e[A' history-beginning-search-backward
-#bindkey '^[OA' history-beginning-search-backward
-#bindkey '\e[B' history-beginning-search-forward
-#bindkey '^[OB' history-beginning-search-forward
-
-#zmodload zsh/terminfo
-#bindkey "$terminfo[kcuu1]" history-substring-search-up
-#bindkey "$terminfo[kcud1]" history-substring-search-down
+export EDITOR='vim'
 
 bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
-
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 DFILE=$HOME/.dbs
 if [[ -a $DFILE ]]; then
@@ -133,5 +88,4 @@ if [[ -a $AFILE ]]; then
     source $AFILE
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/home/sebastian/.gvm/bin/gvm-init.sh" ]] && source "/home/sebastian/.gvm/bin/gvm-init.sh"
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
