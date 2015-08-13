@@ -32,7 +32,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'luochen1990/rainbow'
-"Plugin 'klen/python-mode'
 call vundle#end()
 
 
