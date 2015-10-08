@@ -18,3 +18,9 @@
 
 # 'atom-text-editor.vim-mode.command-mode':
 #   'ctrl-r': 'unset!'
+
+# '.platform-linux atom-text-editor.vim-mode.command-mode':
+#   'ctrl-[': 'unset!'
+
+'atom-workspace atom-text-editor:not([mini])':
+    'ctrl-[': 'unset!'
