@@ -19,17 +19,21 @@
       "*.so"
       "*.o"
       "__pycache__"
+      "*.ipynb"
+      ".imdone"
     ]
     audioBeep: false
     disabledPackages: [
-      "symbols-view"
       "symbol-gen"
+      "symbols-view"
     ]
   editor:
     invisibles: {}
     tabLength: 4
     showIndentGuide: true
     scrollPastEnd: true
+    showInvisibles: true
+    tabType: "soft"
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
@@ -47,3 +51,7 @@
   "atom-pair": {}
   zentabs:
     neverCloseUnsaved: true
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
+  "highlight-selected": {}
+  minimap: {}
