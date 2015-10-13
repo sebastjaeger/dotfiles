@@ -147,8 +147,8 @@ nnoremap <C-y> 3<C-y>
 
 noremap Y y$
 noremap <CR> i<CR><Esc>
-noremap <S-Enter> mzO<Esc>`z
-noremap <C-Enter> mzo<Esc>`z
+noremap <C-Enter> o<Esc>
+noremap <C-S-Enter> O<Esc>
 noremap <Space> i <Esc>l
 
 "noremap <leader>, :%s:::g<Left><Left><Left>
