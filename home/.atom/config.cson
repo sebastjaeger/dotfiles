@@ -27,6 +27,9 @@
       "symbol-gen"
       "symbols-view"
     ]
+    packagesWithKeymapsDisabled: [
+      "highlight-line"
+    ]
   editor:
     invisibles: {}
     tabLength: 4
@@ -55,3 +58,4 @@
     autoBuildTagsWhenActive: true
   "highlight-selected": {}
   minimap: {}
+  "highlight-line": {}
