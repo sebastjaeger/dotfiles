@@ -47,7 +47,8 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(zsh-syntax-highlighting git)
+#plugins=(zsh-syntax-highlighting git)
+plugins=(git zsh-completions zsh-syntax-highlighting history-substring-search zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,8 +76,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export EDITOR='vim'
 
-bindkey "$terminfo[kcuu1]" history-beginning-search-backward
-bindkey "$terminfo[kcud1]" history-beginning-search-forward
+#bindkey "$terminfo[kcuu1]" history-beginning-search-backward
+#bindkey "$terminfo[kcud1]" history-beginning-search-forward
 
 DFILE=$HOME/.dbs
 if [[ -a $DFILE ]]; then
@@ -87,5 +88,46 @@ AFILE=$HOME/.profile
 if [[ -a $AFILE ]]; then
     source $AFILE
 fi
+
+# Load zsh-syntax-highlighting.
+#source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load zsh-history-substring-search
+#source ~/.oh-my-zsh/custom/p lugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# Load zsh-autosuggestions.
+#source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/autosuggestions.zsh
+AUTOSUGGESTION_HIGHLIGHT_COLOR="fg=4"
+
+# bind UP and DOWN arrow keys
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# bind UP and DOWN arrow keys (compatibility fallback
+# for Ubuntu 12.04, Fedora 21, and MacOSX 10.9 users)
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+# Enable autosuggestions automatically.
+zle-line-init() {
+    zle autosuggest-start
+}
+zle -N zle-line-init
+
+# Accept suggestions without leaving insert mode
+bindkey '^f' vi-end-of-line
+
+eval `dircolors ~/.dircolors/dircolors.256dark`
+
+autoload -U compinit && compinit
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
