@@ -10,6 +10,13 @@
       "one-dark-ui"
       "solarized-dark-syntax"
     ]
+    audioBeep: false
+    disabledPackages: [
+      "symbol-gen"
+      "symbols-view"
+      "language-python"
+      "spell-check"
+    ]
     ignoredNames: [
       "*.pyc"
       "*.pkl"
@@ -22,11 +29,6 @@
       "*.ipynb"
       ".imdone"
     ]
-    audioBeep: false
-    disabledPackages: [
-      "symbol-gen"
-      "symbols-view"
-    ]
     packagesWithKeymapsDisabled: [
       "highlight-line"
     ]
@@ -36,7 +38,7 @@
     showIndentGuide: true
     scrollPastEnd: true
     showInvisibles: true
-    tabType: "soft"
+    backUpBeforeSaving: true
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
@@ -58,4 +60,7 @@
     autoBuildTagsWhenActive: true
   "highlight-selected": {}
   minimap: {}
-  "highlight-line": {}
+  "spell-check": {}
+  "autocomplete-python": {}
+  tasks: {}
+  "fuzzy-finder": {}

@@ -1,6 +1,8 @@
 'atom-text-editor:not(mini).autocomplete-active':
   'tab': 'unset!'
   'tab': 'core:move-down'
+  'shift-tab': 'unset!'
+  'shift-tab': 'core:move-up'
   'enter': 'autocomplete-plus:confirm'
   'up': 'unset!'
   'down': 'unset!'
