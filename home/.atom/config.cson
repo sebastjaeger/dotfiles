@@ -1,21 +1,26 @@
 "*":
-  "exception-reporting":
-    userId: "bcc1ef50-e84d-20ec-ed51-27dc89d2af33"
-  welcome:
-    showOnStartup: false
-  "vim-mode":
-    useClipboardAsDefaultRegister: true
-  core:
-    themes: [
-      "one-dark-ui"
-      "solarized-dark-syntax"
+  Hydrogen: {}
+  "atom-ctags":
+    GotoSymbolKey: [
+      "meta"
     ]
+    autoBuildTagsWhenActive: true
+    cmdArgs: "--exclude=.venv --exclude=data"
+  "atom-fuzzy-grep":
+    detectGitProjectAndUseGitGrep: false
+  "atom-pair": {}
+  "autocomplete-plus":
+    confirmCompletion: "enter"
+  "autocomplete-python": {}
+  core:
     audioBeep: false
     disabledPackages: [
       "symbol-gen"
       "symbols-view"
-      "language-python"
       "spell-check"
+      "language-python"
+      "vim-mode"
+      "vim-surround"
     ]
     ignoredNames: [
       "*.pyc"
@@ -31,36 +36,56 @@
     ]
     packagesWithKeymapsDisabled: [
       "highlight-line"
+      "atom-ctags"
+    ]
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
     ]
   editor:
-    invisibles: {}
-    tabLength: 4
-    showIndentGuide: true
-    scrollPastEnd: true
-    showInvisibles: true
     backUpBeforeSaving: true
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "bcc1ef50-e84d-20ec-ed51-27dc89d2af33"
+  "fuzzy-finder": {}
+  "git-diff": {}
+  "highlight-selected": {}
+  linter:
+    errorPanelHeight: 26
+    lintOnFly: false
+  "linter-pep8": {}
+  "markdown-preview":
+    breakOnSingleNewline: true
+  "merge-conflicts": {}
+  minimap: {}
+  "one-dark-ui": {}
+  "project-manager": {}
+  "spell-check": {}
+  tabs: {}
+  tasks: {}
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
-  "autocomplete-plus":
-    confirmCompletion: "enter"
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+  "vim-mode-plus":
+    clearHighlightSearchOnResetNormalMode: true
+    flashOnSearch: false
+    highlightSearch: true
+    ignoreCaseForSearch: true
+    incrementalSearch: true
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
   "vim-surround": {}
-  "git-diff": {}
-  "one-dark-ui": {}
-  "project-manager": {}
-  Hydrogen: {}
-  "markdown-preview":
-    breakOnSingleNewline: true
-  tabs: {}
-  "merge-conflicts": {}
-  "atom-pair": {}
+  welcome:
+    showOnStartup: false
+  whitespace: {}
   zentabs:
     neverCloseUnsaved: true
-  "atom-ctags":
-    autoBuildTagsWhenActive: true
-  "highlight-selected": {}
-  minimap: {}
-  "spell-check": {}
-  "autocomplete-python": {}
-  tasks: {}
-  "fuzzy-finder": {}
+".diff.source":
+  editor:
+    tabLength: 4

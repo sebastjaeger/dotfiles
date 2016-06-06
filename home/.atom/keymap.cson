@@ -8,21 +8,44 @@
   'down': 'unset!'
 
 '.platform-linux atom-text-editor':
-  # 'ctrl-t': 'symbols-view:toggle-file-symbols'
-  # 'ctrl-r': 'unset!'
-  # 'ctrl-r': 'atom-ctags:toggle-project-symbols'
-  # 'ctrl-t': 'atom-ctags:toggle-file-symbols'
   'ctrl-shift-L': 'editor:split-selections-into-lines'
 
 'atom-text-editor.vim-mode:not(.insert-mode)':
   'ctrl-d': 'unset!'
   'ctrl-f': 'unset!'
 
-# 'atom-text-editor.vim-mode.command-mode':
-#   'ctrl-r': 'unset!'
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'ctrl-d': 'unset!'
+  'ctrl-f': 'unset!'
+  'cmd-enter': 'unset!'
+  ':': 'ex-mode:open'
 
-# '.platform-linux atom-text-editor.vim-mode.command-mode':
-#   'ctrl-[': 'unset!'
+'atom-workspace':
+  'ctrl-alt-p': 'fuzzy-grep:toggle'
 
 'atom-workspace atom-text-editor:not([mini])':
     'ctrl-[': 'unset!'
+
+'atom-workspace:not(.editor)':
+  'cmd-enter': 'editor:newline-below'
+
+'body':
+  'f12': 'tabs-to-spaces:untabify'
+
+'atom-text-editor.vim-mode-plus.normal-mode':
+  ':': 'vim-mode-plus-ex-mode:open'
+  '!': 'vim-mode-plus-ex-mode:toggle-setting'
+
+# insert
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'ctrl-r': 'core:paste'
+
+# visual
+'atom-text-editor.vim-mode-plus.visual-mode':
+  's': 'vim-mode-plus:surround'
+  '_': 'vim-mode-plus:replace-with-register'
+
+# normal
+'atom-text-editor.vim-mode-plus.normal-mode':
+  'd s': 'vim-mode-plus:delete-surround-any-pair'
+  'c s': 'vim-mode-plus:change-surround-any-pair'
