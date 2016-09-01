@@ -1,11 +1,13 @@
 "*":
   Hydrogen: {}
+  "atom-beautify":
+    general:
+      analytics: false
   "atom-ctags":
     GotoSymbolKey: [
       "meta"
     ]
     autoBuildTagsWhenActive: true
-    cmdArgs: "--exclude=.venv --exclude=data"
   "atom-fuzzy-grep":
     detectGitProjectAndUseGitGrep: false
   "atom-pair": {}
@@ -18,9 +20,11 @@
       "symbol-gen"
       "symbols-view"
       "spell-check"
-      "language-python"
       "vim-mode"
       "vim-surround"
+      "vim-mode-plus-ex-mode"
+      "language-python"
+      "format-sql"
     ]
     ignoredNames: [
       "*.pyc"
@@ -78,6 +82,7 @@
     highlightSearch: true
     ignoreCaseForSearch: true
     incrementalSearch: true
+    stayOnTransformString: true
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
   "vim-surround": {}
@@ -86,6 +91,24 @@
   whitespace: {}
   zentabs:
     neverCloseUnsaved: true
+".aliases.elasticsearch.source":
+  editor:
+    tabLength: 4
 ".diff.source":
+  editor:
+    tabLength: 4
+".elasticsearch.mapping.source":
+  editor:
+    tabLength: 4
+".elasticsearch.query-dsl.source":
+  editor:
+    tabLength: 4
+".elasticsearch.snapshot.source":
+  editor:
+    tabLength: 4
+".python.regexp.source":
+  editor:
+    tabLength: 4
+".python.source":
   editor:
     tabLength: 4
