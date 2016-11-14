@@ -1,7 +1,5 @@
 'atom-text-editor:not(mini).autocomplete-active':
-  'tab': 'unset!'
   'tab': 'core:move-down'
-  'shift-tab': 'unset!'
   'shift-tab': 'core:move-up'
   'enter': 'autocomplete-plus:confirm'
   'up': 'unset!'
@@ -9,16 +7,6 @@
 
 '.platform-linux atom-text-editor':
   'ctrl-shift-L': 'editor:split-selections-into-lines'
-
-'atom-text-editor.vim-mode:not(.insert-mode)':
-  'ctrl-d': 'unset!'
-  'ctrl-f': 'unset!'
-
-'atom-text-editor.vim-mode-plus:not(.insert-mode)':
-  'ctrl-d': 'unset!'
-  'ctrl-f': 'unset!'
-  'cmd-enter': 'unset!'
-  ':': 'ex-mode:open'
 
 'atom-workspace':
   'ctrl-alt-p': 'fuzzy-grep:toggle'
@@ -33,10 +21,20 @@
 'body':
   'f12': 'tabs-to-spaces:untabify'
 
-'atom-text-editor.vim-mode-plus.normal-mode':
-  ':': 'vim-mode-plus-ex-mode:open'
-  '!': 'vim-mode-plus-ex-mode:toggle-setting'
+# not insert
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'ctrl-d': 'find-and-replace:select-next'
+  'ctrl-f': 'unset!'
+  'cmd-enter': 'unset!'
+  ':': 'ex-mode:open'
 
+# normal
+'atom-text-editor.vim-mode-plus.normal-mode':
+  'd s': 'vim-mode-plus:delete-surround'
+  'c s': 'vim-mode-plus:change-surround'
+  'ctrl-d': 'find-and-replace:select-next'
+
+# insert
 'atom-text-editor.vim-mode-plus.insert-mode':
   'ctrl-r': 'core:paste'
 
@@ -47,8 +45,3 @@
   # do not unselect after useing brackets to in/outdent
   '>': 'editor:indent-selected-rows'
   '<': 'editor:outdent-selected-rows'
-
-# normal
-'atom-text-editor.vim-mode-plus.normal-mode':
-  'd s': 'vim-mode-plus:delete-surround'
-  'c s': 'vim-mode-plus:change-surround'
