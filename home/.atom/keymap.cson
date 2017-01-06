@@ -11,9 +11,13 @@
 'atom-workspace':
   'ctrl-alt-p': 'fuzzy-grep:toggle'
   'alt-z': 'atom-ctags:return-from-declaration'
+  'ctrl-i': 'cursor-history:next'
+  'ctrl-o': 'cursor-history:prev'
+  'ctrl-cmd-i': 'cursor-history:next-within-editor'
+  'ctrl-cmd-o': 'cursor-history:prev-within-editor'
 
-'atom-workspace atom-text-editor:not([mini])':
-    'ctrl-[': 'unset!'
+# 'atom-workspace atom-text-editor:not([mini])':
+#     'ctrl-[': 'unset!'
 
 'atom-workspace:not(.editor)':
   'cmd-enter': 'editor:newline-below'
@@ -23,6 +27,7 @@
 
 # not insert
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'ctrl-e': 'vim-mode-plus:scroll-down'
   'ctrl-d': 'find-and-replace:select-next'
   'ctrl-f': 'unset!'
   'cmd-enter': 'unset!'

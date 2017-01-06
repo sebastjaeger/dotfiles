@@ -11,27 +11,27 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'L9'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'bruno-/vim-husk'
+"Plugin 'bruno-/vim-husk'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'duff/vim-scratch'
+"Plugin 'duff/vim-scratch'
 Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'luochen1990/rainbow'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-easytags'
+"Plugin 'luochen1990/rainbow'
 call vundle#end()
 
 
@@ -96,7 +96,7 @@ if has('gui_running')
 endif
 
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 set t_Co=256
 
 if has("gui_macvim")

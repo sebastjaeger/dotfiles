@@ -1,5 +1,11 @@
 "*":
   Hydrogen: {}
+  "activate-power-mode":
+    particles:
+      colours:
+        type: "random"
+    screenShake:
+      enabled: false
   "atom-beautify":
     general:
       analytics: false
@@ -20,11 +26,8 @@
       "symbol-gen"
       "symbols-view"
       "spell-check"
-      "vim-mode"
-      "vim-surround"
-      "vim-mode-plus-ex-mode"
       "language-python"
-      "format-sql"
+      "linter-pep8"
     ]
     ignoredNames: [
       "*.pyc"
@@ -35,13 +38,12 @@
       "*.so"
       "*.o"
       "__pycache__"
-      "*.ipynb"
-      ".imdone"
     ]
     packagesWithKeymapsDisabled: [
       "highlight-line"
       "atom-ctags"
     ]
+    telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
@@ -57,18 +59,41 @@
     userId: "bcc1ef50-e84d-20ec-ed51-27dc89d2af33"
   "fuzzy-finder": {}
   "git-diff": {}
+  "git-plus":
+    general:
+      _analyticsUserId: "84db1359-36fa-4d98-8d2b-234c4433a602"
   "highlight-selected": {}
   linter:
     errorPanelHeight: 26
+    gutterPosition: "Left"
     lintOnFly: false
-  "linter-pep8": {}
+    showErrorTabFile: false
+    showErrorTabProject: false
+  "linter-flake8":
+    executablePath: "/usr/local/bin/flake8"
+    ignoreErrorCodes: [
+      "E702"
+    ]
+  "linter-pep8":
+    ignoreErrorCodes: [
+      "E702"
+    ]
   "markdown-preview":
     breakOnSingleNewline: true
   "merge-conflicts": {}
   minimap: {}
   "one-dark-ui": {}
   "project-manager": {}
+  "remote-atom":
+    keep_alive: true
+    launch_at_startup: true
   "spell-check": {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
   tabs: {}
   tasks: {}
   "tree-view":
@@ -90,8 +115,18 @@
     showOnStartup: false
   whitespace: {}
   zentabs:
+    maximumOpenedTabs: 7
     neverCloseUnsaved: true
 ".aliases.elasticsearch.source":
+  editor:
+    tabLength: 4
+".babel.regexp.source":
+  editor:
+    tabLength: 4
+".css.source.styled":
+  editor:
+    tabLength: 4
+".diff":
   editor:
     tabLength: 4
 ".diff.source":
@@ -104,6 +139,12 @@
   editor:
     tabLength: 4
 ".elasticsearch.snapshot.source":
+  editor:
+    tabLength: 4
+".js.jsx.source":
+  editor:
+    tabLength: 4
+".languagebabel.ttlextension":
   editor:
     tabLength: 4
 ".python.regexp.source":
